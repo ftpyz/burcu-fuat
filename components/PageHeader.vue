@@ -1,11 +1,32 @@
 <template>
   <section>
     <div class="cicek">
-      <div class="foto">
-        <img class="active" src="~/static/kapadokya-1.jpg" />
-        <img class="" src="~/static/bursa-1.jpg" />
-        <img class="" src="~/static/akyaka.jpg" />
-        <img class="" src="~/static/istanbul.jpg" />
+      <div class="foto" ref="sliders">
+        <img
+          :class="activeImg === 'kapadokya' ? 'active' : ''"
+          @click="degistir('bursa')"
+          src="~/static/kapadokya-1.jpg"
+        />
+        <img
+          :class="activeImg === 'bursa' ? 'active' : ''"
+          @click="degistir('akyaka')"
+          src="~/static/bursa-1.jpg"
+        />
+        <img
+          :class="activeImg === 'akyaka' ? 'active' : ''"
+          @click="degistir('istanbul')"
+          src="~/static/akyaka.jpg"
+        />
+        <img
+          :class="activeImg === 'istanbul' ? 'active' : ''"
+          @click="degistir('mudanya')"
+          src="~/static/istanbul.jpg"
+        />
+        <img
+          :class="activeImg === 'mudanya' ? 'active' : ''"
+          @click="degistir('kapadokya')"
+          src="~/static/mudanya.jpg"
+        />
       </div>
     </div>
   </section>
@@ -14,6 +35,24 @@
 // Import Swiper styles
 export default {
   name: 'PageHeader',
+
+  data() {
+    return {
+      activeImg: 'kapadokya',
+      allImages: ['kapadokya', 'bursa', 'akyaka', 'istanbul', 'mudanya'],
+    }
+  },
+  created() {
+    setInterval(() => {
+      const n = this.allImages[this.allImages.indexOf(this.activeImg) + 1]
+      this.activeImg = n
+    }, 5000)
+  },
+  methods: {
+    degistir(id) {
+      this.activeImg = id
+    },
+  },
 }
 </script>
 <style scoped>
