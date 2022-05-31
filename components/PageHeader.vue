@@ -46,7 +46,7 @@ export default {
     setInterval(() => {
       const n = this.allImages[this.allImages.indexOf(this.activeImg) + 1]
       this.activeImg = n
-    }, 5000)
+    }, 3000)
   },
   methods: {
     degistir(id) {
