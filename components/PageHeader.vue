@@ -89,12 +89,14 @@ export default {
   width: 320px;
   height: 320px;
   margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .foto {
-  z-index: 10;
-  position: relative;
-  left: 28%;
-  top: 27%;
+  margin-top: -20px;
+  margin-left: -10px;
 }
 .foto img {
   opacity: 0.8;
