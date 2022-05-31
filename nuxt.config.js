@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'burcu-fuat',
+    title: 'Burcu&Fuat Düğün',
     htmlAttrs: {
       lang: 'en',
     },

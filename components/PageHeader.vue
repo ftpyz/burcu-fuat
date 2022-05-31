@@ -2,17 +2,16 @@
   <section>
     <div class="cicek">
       <div class="foto">
-        <img src="~/static/kapadokya-1.jpg" />
-        <img src="~/static/bursa-1.jpg" />
+        <img class="active" src="~/static/kapadokya-1.jpg" />
+        <img class="" src="~/static/bursa-1.jpg" />
+        <img class="" src="~/static/akyaka.jpg" />
+        <img class="" src="~/static/istanbul.jpg" />
       </div>
     </div>
   </section>
 </template>
 <script>
-import { Swiper, SwiperSlide } from 'swiper/vue'
-
 // Import Swiper styles
-import 'swiper/css'
 export default {
   name: 'PageHeader',
 }
@@ -35,5 +34,9 @@ export default {
   border-radius: 140px;
   width: 130px;
   height: 130px;
+  display: none;
+}
+.foto img.active {
+  display: block;
 }
 </style>
