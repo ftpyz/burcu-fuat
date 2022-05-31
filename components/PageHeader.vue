@@ -24,8 +24,24 @@
         />
         <img
           :class="activeImg === 'mudanya' ? 'active' : ''"
-          @click="degistir('kapadokya')"
+          @click="degistir('kazdaglari')"
           src="~/static/mudanya.jpg"
+        />
+
+        <img
+          :class="activeImg === 'kazdaglari' ? 'active' : ''"
+          @click="degistir('kar')"
+          src="~/static/kazdaglari.jpg"
+        />
+        <img
+          :class="activeImg === 'kar' ? 'active' : ''"
+          @click="degistir('sari')"
+          src="~/static/kar.jpg"
+        />
+        <img
+          :class="activeImg === 'sari' ? 'active' : ''"
+          @click="degistir('kapadokya')"
+          src="~/static/sari.jpg"
         />
       </div>
     </div>
@@ -39,18 +55,30 @@ export default {
   data() {
     return {
       activeImg: 'kapadokya',
-      allImages: ['kapadokya', 'bursa', 'akyaka', 'istanbul', 'mudanya'],
+      interval: null,
+      allImages: [
+        'kapadokya',
+        'bursa',
+        'akyaka',
+        'istanbul',
+        'mudanya',
+        'kazdaglari',
+        'kar',
+        'sari',
+      ],
     }
   },
   created() {
-    setInterval(() => {
+    this.interval = setInterval(() => {
       const n = this.allImages[this.allImages.indexOf(this.activeImg) + 1]
-      this.activeImg = n
+
+      this.activeImg = n === undefined ? 'kapadokya' : n
     }, 3000)
   },
   methods: {
     degistir(id) {
       this.activeImg = id
+      clearInterval(this.interval)
     },
   },
 }
