@@ -4,10 +4,14 @@
     <GirisYazisi />
     <DavetiyeLink />
     <YolTarifiHarita />
+    <ConfettiExplosion />
   </div>
 </template>
 
 <script>
+import VueConfetti from 'vue-confetti'
+import Vue from 'vue'
+Vue.use(VueConfetti)
 export default {
   name: 'IndexPage',
   components: {
@@ -15,6 +19,19 @@ export default {
     GirisYazisi: () => import('@/components/GirisYazisi'),
     DavetiyeLink: () => import('@/components/DavetiyeLink'),
     YolTarifiHarita: () => import('@/components/YolTarifiHarita'),
+  },
+  created() {
+    this.$confetti.start({
+      particles: [
+        {
+          type: 'heart',
+        },
+      ],
+      defaultColors: ['red', 'pink', '#ba0000'],
+    })
+    setInterval(() => {
+      this.$confetti.stop()
+    }, 5000)
   },
 }
 </script>
